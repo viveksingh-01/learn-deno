@@ -1,6 +1,6 @@
 /**
  * @name --allow-read
- * @description Provides READ permissions to Deno
+ * @description Allows READ access to Deno
  */
 
 /**
@@ -16,10 +16,9 @@ const fileContent = await Deno.readTextFile("./read.txt");
 console.log(fileContent);
 
 /* ******************************************************************************************* */
-
 /**
  * @name --allow-write
- * @description Provides WRITE permissions to Deno
+ * @description Allows WRITE access to Deno
  */
 
 /**
@@ -29,3 +28,18 @@ await Deno.writeTextFile(
   "write.txt",
   "This is some more random text...",
 );
+
+/* ******************************************************************************************* */
+/**
+ * @name --allow-net
+ * @description Allows NETWORK access to Deno
+ */
+
+/**
+ * @example Fetch data from a third-party API
+ */
+const userData = await fetch("https://jsonplaceholder.typicode.com/users/1")
+  .then(
+    (response) => response.json(),
+  );
+console.log(userData);
